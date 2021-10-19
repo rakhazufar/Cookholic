@@ -1,0 +1,579 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap");
+
+$main-font: "Poppins", sans-serif;
+$color: #a2d2ff;
+$color2: #ff865e;
+$color3: #fef9ef;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $main-font;
+  overflow-x: hidden;
+}
+
+#root {
+  overflow-x: hidden;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 100%;
+  background-color: $color;
+
+  .bgr {
+    display: none;
+    div {
+      width: 30px;
+      height: 3px;
+      margin: 4px 0;
+      background-color: black;
+    }
+  }
+
+  .insideNavbar {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      letter-spacing: 1px;
+      font-weight: 600;
+      span {
+        color: $color2;
+      }
+    }
+
+    .leftSide {
+      width: 22%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      img {
+        width: 20px;
+        cursor: pointer;
+      }
+      button {
+        width: 90px;
+        height: 35px;
+        border-radius: 40px;
+        border: none;
+        font-weight: 500;
+        font-size: smaller;
+        cursor: pointer;
+      }
+      .signup {
+        background-color: $color2;
+      }
+      .signup:hover {
+        background-color: #fa7346;
+        border: 1px solid $color2;
+      }
+
+      .signin {
+        background-color: inherit;
+        border: 2px solid $color2;
+      }
+      .signin:hover {
+        background-color: $color2;
+      }
+    }
+  }
+}
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $color3;
+  .homepage {
+    display: flex;
+    width: 80%;
+    height: 90vh;
+    justify-content: space-between;
+    align-items: center;
+    .text-page {
+      letter-spacing: 1px;
+      h1 {
+        font-weight: 700;
+      }
+      h4 {
+        font-size: larger;
+        font-weight: 600;
+      }
+      .CTA-search {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+        img {
+          width: 25px;
+          margin-right: 8px;
+        }
+        input {
+          height: 30px;
+          width: 40%;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          border-bottom: 2px solid;
+          outline: none;
+          background-color: inherit;
+        }
+      }
+    }
+    .img-page {
+      img {
+        width: 400px;
+      }
+    }
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+  background-color: $color3;
+  h1 {
+    margin: 15px 0;
+  }
+
+  .card-container {
+    display: flex;
+    width: 82%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+}
+$size-card: 38vh;
+.card {
+  box-shadow: 1px 5px 10px #888888;
+  width: $size-card;
+  height: 60vh;
+  padding-bottom: 10px;
+  background-color: white;
+  margin: 10px 5px;
+  position: relative;
+  img {
+    width: $size-card;
+    height: 220px;
+  }
+
+  .caption {
+    padding: 0 10px;
+    h3 {
+      font-size: large;
+      margin-bottom: 3px;
+    }
+    p {
+      margin: 3px 0;
+      font-size: smaller;
+    }
+  }
+  button {
+    margin: 3px 10px;
+    height: 30px;
+    width: 100px;
+    border-radius: 50px;
+    border: 2px solid $color2;
+    background-color: inherit;
+    cursor: pointer;
+    font-weight: 500;
+    position: absolute;
+    bottom: 10px;
+  }
+  button:hover {
+    background-color: $color2;
+  }
+}
+.error {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  background-color: $color3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-recipe {
+  margin-top: 10vh;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  height: 15vh !important;
+  justify-content: center;
+  align-items: center;
+  background-color: $color3;
+  div {
+    width: 82%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh;
+
+    span {
+      color: $color2;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      color: $color2;
+    }
+  }
+}
+
+.modal-search {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.424);
+  .search-box {
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      input {
+        width: 50vw;
+        height: 50px;
+        border: 3px solid black;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background-color: inherit;
+        outline: none;
+        color: rgb(226, 226, 226);
+        font-size: 30px;
+      }
+      input::placeholder {
+        color: rgb(240, 240, 240);
+      }
+
+      button {
+        margin: 0 5px;
+        border: none;
+        background-color: inherit;
+        cursor: pointer;
+        img {
+          width: 40px;
+        }
+      }
+    }
+  }
+}
+
+.login {
+  height: 90vh;
+  width: 100%;
+  background-image: url(./assets/background-login.jpg);
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  .card-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: $color3;
+    width: 30%;
+    height: 55vh;
+    border: 2px solid white;
+    h1 {
+      font-size: 2rem;
+      color: black;
+      font-weight: 530;
+      margin: 10px 0;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 0 20px;
+      color: black;
+      align-items: flex-start;
+      justify-content: flex-start;
+      input {
+        margin: 5px 0;
+        width: 100%;
+        height: 40px;
+      }
+    }
+    div {
+      width: 100%;
+      padding: 0 20px;
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      h5 {
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+    }
+  }
+}
+.btn {
+  margin: 10px 0;
+  width: 100%;
+  height: 40px;
+  font-size: 1rem;
+  background-color: $color2;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #fc7041;
+  }
+}
+
+.signup-section {
+  width: 100%;
+  height: 90vh;
+  background-image: url(./assets/backgroundSignup.jpg);
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+  flex-direction: row;
+  justify-content: space-between;
+  .signup-form {
+    height: 90vh;
+    width: 40%;
+    padding: 0 20px;
+    background-color: $color3;
+    h1 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      div {
+        display: inherit;
+        flex-direction: inherit;
+        margin: 10px 0px;
+        input {
+          height: 40px;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+.term {
+  flex-direction: row !important;
+  align-items: center;
+  input {
+    margin: 0 10px;
+  }
+}
+.already-signup {
+  margin: 10px 0;
+}
+.detail-food {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .inside-food {
+    width: 80%;
+    padding-top: 10px;
+    h3 {
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .card-container {
+      width: 100%;
+      padding: 3px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+}
+.signup-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 30vw;
+  color: white;
+  margin: 10vw;
+}
+
+@media screen and (max-width: 768px) {
+  .detail-food {
+    height: 100%;
+    .inside-food {
+      width: 95%;
+      height: 100%;
+      overflow-y: hidden;
+    }
+  }
+  //NAV
+  nav {
+    .leftSide {
+      position: absolute;
+      z-index: 1;
+      top: 9.9vh;
+      right: 0;
+      height: 100vh;
+      width: 50% !important;
+      background-color: $color;
+      flex-direction: column;
+      justify-content: flex-start !important;
+      align-items: flex-start;
+      transform: translateX(100%);
+      transition: transform ease-in 0.3s;
+      img,
+      button {
+        margin: 40px 0;
+      }
+    }
+    .active {
+      transform: translateY(0);
+    }
+    .bgr {
+      cursor: pointer;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .line1,
+      .line2,
+      .line3 {
+        margin: 3px 0;
+        transition: ease-in 0.2s;
+      }
+    }
+
+    .change-bgr {
+      .line1,
+      .line2,
+      .line3 {
+        margin: 0;
+        transition: ease-in 0.2s;
+      }
+      .line1 {
+        transform: rotate(45deg);
+        margin-top: 2px;
+      }
+      .line2 {
+        display: none;
+      }
+      .line3 {
+        transform: rotate(-45deg);
+        margin-top: -2px;
+      }
+    }
+  }
+
+  //Searchbox
+  .search-box {
+    input {
+      font-size: 25px !important;
+    }
+    button > img {
+      width: 7vw !important;
+    }
+  }
+
+  //MAIN PAGE
+  .img-page {
+    display: none;
+  }
+  main {
+    background-image: url(./assets/background.png);
+    background-size: cover;
+  }
+
+  .text-page {
+    h1 {
+      font-size: 1.9rem;
+    }
+    h4 {
+      font-size: medium !important;
+    }
+    .CTA-search {
+      input {
+        width: 50% !important;
+      }
+    }
+  }
+
+  //CARD
+  .card-container {
+    flex-direction: column;
+    width: 100% !important;
+    padding: 0;
+  }
+  .blur-effect {
+    display: none;
+  }
+  .card {
+    display: flex;
+    width: 95%;
+    height: 20vh;
+    margin: 10px 5px;
+    overflow-y: hidden;
+    img {
+      width: 400px;
+      height: 110%;
+      margin: 0;
+    }
+    .caption {
+      margin: 2px 0;
+      overflow-y: hidden;
+      padding: 5px;
+      h3 {
+        font-size: 3vw;
+      }
+      p {
+        font-size: 2.5vw;
+      }
+    }
+    button {
+      margin: 8px 10px 08px 0px;
+      span {
+        display: none;
+      }
+      width: 200px;
+    }
+    button:after {
+      content: "Details";
+    }
+  }
+
+  .card-login {
+    width: 90% !important;
+    h5 {
+      font-size: 0.7rem !important;
+    }
+  }
+  .signup-section {
+    justify-content: center;
+    align-items: center;
+    .signup-text {
+      display: none;
+    }
+    .signup-form {
+      width: 90%;
+      height: fit-content;
+    }
+  }
+}

@@ -1,13 +1,772 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap");
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  overflow-x: hidden;
+  position: relative;
 }
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 10vh;
+  width: 100%;
+  background-color: #a2d2ff;
+}
+
+nav .bgr {
+  display: none;
+}
+
+nav .bgr div {
+  width: 30px;
+  height: 3px;
+  margin: 4px 0;
+  background-color: black;
+}
+
+nav .insideNavbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .insideNavbar h1 {
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+nav .insideNavbar h1 span {
+  color: #ff865e;
+}
+
+nav .insideNavbar .leftSide {
+  width: 22%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .insideNavbar .leftSide img {
+  width: 20px;
+  cursor: pointer;
+}
+
+nav .insideNavbar .leftSide button {
+  width: 90px;
+  height: 35px;
+  border-radius: 40px;
+  border: none;
+  font-weight: 500;
+  font-size: smaller;
+  cursor: pointer;
+}
+
+nav .insideNavbar .leftSide .signup {
+  background-color: #ff865e;
+}
+
+nav .insideNavbar .leftSide .signup:hover {
+  background-color: #fa7346;
+  border: 1px solid #ff865e;
+}
+
+nav .insideNavbar .leftSide .signin {
+  background-color: inherit;
+  border: 2px solid #ff865e;
+}
+
+nav .insideNavbar .leftSide .signin:hover {
+  background-color: #ff865e;
+}
+
+main {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fef9ef;
+}
+
+main .homepage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  height: 90vh;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .homepage .text-page {
+  letter-spacing: 1px;
+}
+
+main .homepage .text-page h1 {
+  font-weight: 700;
+}
+
+main .homepage .text-page h4 {
+  font-size: larger;
+  font-weight: 600;
+}
+
+main .homepage .text-page .CTA-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15px 0;
+}
+
+main .homepage .text-page .CTA-search img {
+  width: 25px;
+  margin-right: 8px;
+}
+
+main .homepage .text-page .CTA-search input {
+  height: 30px;
+  width: 40%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid;
+  outline: none;
+  background-color: inherit;
+}
+
+main .homepage .img-page img {
+  width: 400px;
+}
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 90vh;
+  background-color: #fef9ef;
+}
+
+section h1 {
+  margin: 15px 0;
+}
+
+section .card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 82%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.card {
+  -webkit-box-shadow: 1px 5px 10px #888888;
+          box-shadow: 1px 5px 10px #888888;
+  width: 38vh;
+  height: 60vh;
+  padding-bottom: 10px;
+  background-color: white;
+  margin: 10px 5px;
+  position: relative;
+}
+
+.card img {
+  width: 38vh;
+  height: 220px;
+}
+
+.card .caption {
+  padding: 0 10px;
+}
+
+.card .caption h3 {
+  font-size: large;
+  margin-bottom: 3px;
+}
+
+.card .caption p {
+  margin: 3px 0;
+  font-size: smaller;
+}
+
+.card button {
+  margin: 3px 10px;
+  height: 30px;
+  width: 100px;
+  border-radius: 50px;
+  border: 2px solid #ff865e;
+  background-color: inherit;
+  cursor: pointer;
+  font-weight: 500;
+  position: absolute;
+  bottom: 10px;
+}
+
+.card button:hover {
+  background-color: #ff865e;
+}
+
+.new-recipe {
+  margin-top: 10vh;
+}
+
+footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 15vh !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fef9ef;
+}
+
+footer div {
+  width: 82%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 15vh;
+}
+
+footer div span {
+  color: #ff865e;
+}
+
+footer div a {
+  text-decoration: none;
+  color: black;
+}
+
+footer div a:hover {
+  color: #ff865e;
+}
+
+.modal-search {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.424);
+}
+
+.modal-search .search-box form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-search .search-box form input {
+  width: 50vw;
+  height: 50px;
+  border: 3px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: inherit;
+  outline: none;
+  color: #e2e2e2;
+  font-size: 30px;
+}
+
+.modal-search .search-box form input::-webkit-input-placeholder {
+  color: #f0f0f0;
+}
+
+.modal-search .search-box form input:-ms-input-placeholder {
+  color: #f0f0f0;
+}
+
+.modal-search .search-box form input::-ms-input-placeholder {
+  color: #f0f0f0;
+}
+
+.modal-search .search-box form input::placeholder {
+  color: #f0f0f0;
+}
+
+.modal-search .search-box form button {
+  margin: 0 5px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.modal-search .search-box form button img {
+  width: 40px;
+}
+
+.login {
+  height: 90vh;
+  width: 100%;
+  background-image: url(./assets/background-login.jpg);
+  background-size: cover;
+  -webkit-box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+}
+
+.login .card-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fef9ef;
+  width: 30%;
+  height: 55vh;
+  border: 2px solid white;
+}
+
+.login .card-login h1 {
+  font-size: 2rem;
+  color: black;
+  font-weight: 530;
+  margin: 10px 0;
+}
+
+.login .card-login form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  padding: 0 20px;
+  color: black;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.login .card-login form input {
+  margin: 5px 0;
+  width: 100%;
+  height: 40px;
+}
+
+.login .card-login div {
+  width: 100%;
+  padding: 0 20px;
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.login .card-login div h5 {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.btn {
+  margin: 10px 0;
+  width: 100%;
+  height: 40px;
+  font-size: 1rem;
+  background-color: #ff865e;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #fc7041;
+}
+
+.signup-section {
+  width: 100%;
+  height: 90vh;
+  background-image: url(./assets/backgroundSignup.jpg);
+  background-size: cover;
+  -webkit-box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+          box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.signup-section .signup-form {
+  height: 90vh;
+  width: 40%;
+  padding: 0 20px;
+  background-color: #fef9ef;
+}
+
+.signup-section .signup-form h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.signup-section .signup-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.signup-section .signup-form form div {
+  display: inherit;
+  -webkit-box-orient: inherit;
+  -webkit-box-direction: inherit;
+      -ms-flex-direction: inherit;
+          flex-direction: inherit;
+  margin: 10px 0px;
+}
+
+.signup-section .signup-form form div input {
+  height: 40px;
+  font-size: 1rem;
+}
+
+.term {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.term input {
+  margin: 0 10px;
+}
+
+.already-signup {
+  margin: 10px 0;
+}
+
+.detail-food {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.detail-food .inside-food {
+  width: 80%;
+  padding-top: 10px;
+}
+
+.detail-food .inside-food h3 {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.detail-food .inside-food .card-container {
+  width: 100%;
+  padding: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.signup-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 30vw;
+  color: white;
+  margin: 10vw;
+}
+
+@media screen and (max-width: 768px) {
+  .detail-food {
+    height: 100%;
+  }
+  .detail-food .inside-food {
+    width: 95%;
+    height: 100%;
+    overflow-y: hidden;
+  }
+  nav .leftSide {
+    position: absolute;
+    z-index: 1;
+    top: 9.9vh;
+    right: 0;
+    height: 100vh;
+    width: 50% !important;
+    background-color: #a2d2ff;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: -webkit-transform ease-in 0.3s;
+    transition: -webkit-transform ease-in 0.3s;
+    transition: transform ease-in 0.3s;
+    transition: transform ease-in 0.3s, -webkit-transform ease-in 0.3s;
+  }
+  nav .leftSide img,
+  nav .leftSide button {
+    margin: 40px 0;
+  }
+  nav .active {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  nav .bgr {
+    cursor: pointer;
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  nav .bgr .line1,
+  nav .bgr .line2,
+  nav .bgr .line3 {
+    margin: 3px 0;
+    -webkit-transition: ease-in 0.2s;
+    transition: ease-in 0.2s;
+  }
+  nav .change-bgr .line1,
+  nav .change-bgr .line2,
+  nav .change-bgr .line3 {
+    margin: 0;
+    -webkit-transition: ease-in 0.2s;
+    transition: ease-in 0.2s;
+  }
+  nav .change-bgr .line1 {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    margin-top: 2px;
+  }
+  nav .change-bgr .line2 {
+    display: none;
+  }
+  nav .change-bgr .line3 {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    margin-top: -2px;
+  }
+  .search-box input {
+    font-size: 25px !important;
+  }
+  .search-box button > img {
+    width: 7vw !important;
+  }
+  .img-page {
+    display: none;
+  }
+  main {
+    background-image: url(./assets/background.png);
+    background-size: cover;
+  }
+  .text-page h1 {
+    font-size: 1.9rem;
+  }
+  .text-page h4 {
+    font-size: medium !important;
+  }
+  .text-page .CTA-search input {
+    width: 50% !important;
+  }
+  .card-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100% !important;
+    padding: 0;
+  }
+  .blur-effect {
+    display: none;
+  }
+  .card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 95%;
+    height: 20vh;
+    margin: 10px 5px;
+    overflow-y: hidden;
+  }
+  .card img {
+    width: 400px;
+    height: 110%;
+    margin: 0;
+  }
+  .card .caption {
+    margin: 2px 0;
+    overflow-y: hidden;
+    padding: 5px;
+  }
+  .card .caption h3 {
+    font-size: 3vw;
+  }
+  .card .caption p {
+    font-size: 2.5vw;
+  }
+  .card button {
+    margin: 8px 10px 08px 0px;
+    width: 200px;
+  }
+  .card button span {
+    display: none;
+  }
+  .card button:after {
+    content: "Details";
+  }
+  .card-login {
+    width: 90% !important;
+  }
+  .card-login h5 {
+    font-size: 0.7rem !important;
+  }
+  .signup-section {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .signup-section .signup-text {
+    display: none;
+  }
+  .signup-section .signup-form {
+    width: 90%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+/*# sourceMappingURL=index.css.map */
