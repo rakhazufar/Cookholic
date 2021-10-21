@@ -1,4 +1,8 @@
-import { createStore } from "redux";
-import reducer from "./index";
+import { configureStore } from "@reduxjs/toolkit";
+import { foodResult } from ".";
 
-export const store = createStore(reducer);
+export default configureStore({
+  reducer: {
+    food: foodResult,
+  },
+});

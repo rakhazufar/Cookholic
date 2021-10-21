@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./navbar/Navbar";
 import Home from "./homepage/Home";
-
 import ModalSearch from "./ModalSearch";
 import { Redirect, Route, Switch } from "react-router";
 import Login from "./Login";
@@ -11,7 +10,7 @@ import ErrorPage from "./Error";
 
 function App() {
   const [showSearch, setShowSearch] = useState(false);
-  const [isAnyQuery, setIsAnyQuery] = useState(false);
+  const [isAnyQuery, setIsAnyQuery] = useState(true);
   return (
     <>
       <Navbar showSearch={setShowSearch} />
@@ -28,9 +27,10 @@ function App() {
         <Route path="/signup">
           <Signup />
         </Route>
-        <Route path="/result">
-          {isAnyQuery ? <Foodpage /> : <Redirect to="/" />}
-        </Route>
+        <Route
+          path="/result/:name"
+          children={isAnyQuery ? <Foodpage /> : <Redirect to="/" />}
+        ></Route>
         <Route path="*">
           <ErrorPage />
         </Route>

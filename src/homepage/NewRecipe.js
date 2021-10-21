@@ -1,8 +1,12 @@
 import React from "react";
 import Card from "../Card";
+import { useFetch } from "../useFetch";
 
-function NewRecipe({ dataFood }) {
-  const { data, error, isLoading } = dataFood;
+function NewRecipe() {
+  const apiKey = "d45acc3131794a539e9320b9d66ce264";
+  const url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=4`;
+
+  const { data, error, isLoading } = useFetch(url);
 
   if (error) {
     return (

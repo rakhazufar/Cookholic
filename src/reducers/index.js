@@ -1,21 +1,18 @@
-const store = {
-  NewRecipe: {},
-  Suggestion: {},
-  SearchResult: {},
-  DetailFood: {},
-  number: 0,
-};
+import { createSlice } from "@reduxjs/toolkit";
 
-const reducer = (state = store, action) => {
-  switch (action.type) {
-    case "INCREMENT":
-      return {
-        ...store,
-        number: state.number + 1,
-      };
-    default:
-      return state;
-  }
-};
+export const foodResult = createSlice({
+  name: "food_data",
+  initialState: {
+    food: {},
+  },
+  reducers: {
+    updateFood: (state, action) => {
+      state.food = action.payload;
+    },
+  },
+});
 
-export default reducer;
+// Action creators are generated for each case reducer function
+export const { updateFood } = foodResult.actions;
+
+export default foodResult.reducer;

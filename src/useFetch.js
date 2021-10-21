@@ -32,7 +32,7 @@ export const useSearch = (query) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [Results, setResults] = useState(null);
-  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=d45acc3131794a539e9320b9d66ce264&query=${query}&number=20&addRecipeInformation=true`;
+  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=d45acc3131794a539e9320b9d66ce264&query=${query}&number=3&addRecipeInformation=true`;
   useEffect(() => {
     fetch(url)
       .then((response) => {

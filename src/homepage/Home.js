@@ -9,12 +9,12 @@ function Home({ setIsAnyQuery }) {
   const apiKey = "d45acc3131794a539e9320b9d66ce264";
   const url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=4`;
 
-  const { data, error, isLoading } = useFetch(url);
+  // const { data, error, isLoading } = useFetch(url);
   return (
     <>
       <Homepage setIsAnyQuery={setIsAnyQuery} />
-      <Suggestion dataFood={{ data, error, isLoading }} />
-      <NewRecipe dataFood={{ data, error, isLoading }} />
+      {/* <Suggestion dataFood={{ data, error, isLoading }} />
+      <NewRecipe dataFood={{ data, error, isLoading }} /> */}
       <Footer />
     </>
   );
