@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import { useLocation } from "react-router";
+import { useLocation, useHistory } from "react-router";
 import { Redirect } from "react-router-dom";
 import { useSearch } from "./useFetch";
-import { useDispatch, useSelector } from "react-redux";
 
 function Foodpage({ isAnyQuery }) {
   if (!isAnyQuery) {
     <Redirect to="/" />;
   }
-  const dispatch = useDispatch();
-  const dataFood = useSelector((state) => state.food_data.food);
-
   const location = useLocation();
-  const data = useSearch(location.state.query);
-  useEffect(() => {});
-
+  const history = useHistory();
+  const { data, isLoading, error, Results } = useSearch(location.state.query);
   if (error) {
     return (
       <section>
@@ -30,7 +25,7 @@ function Foodpage({ isAnyQuery }) {
         <h3>Results for {location.state.query}</h3>
         <div className="card-container">
           {isLoading ? (
-            <h1>{forceRender}</h1>
+            <h1>Result</h1>
           ) : Results === 0 ? (
             <h1>{location.state.query} not found</h1>
           ) : (

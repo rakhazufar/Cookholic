@@ -28,7 +28,7 @@ function App() {
           <Signup />
         </Route>
         <Route
-          path="/result/:name"
+          path="/result"
           children={isAnyQuery ? <Foodpage /> : <Redirect to="/" />}
         ></Route>
         <Route path="*">
