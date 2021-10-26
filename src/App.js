@@ -7,15 +7,25 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Foodpage from "./Foodpage";
 import ErrorPage from "./Error";
+import FullRecipe from "./FullRecipe";
 
 function App() {
   const [showSearch, setShowSearch] = useState(false);
   const [isAnyQuery, setIsAnyQuery] = useState(true);
+  const [key, setKey] = useState(Math.random());
+  const generateKey = () => {
+    setKey(Math.random());
+  };
+
   return (
     <>
       <Navbar showSearch={setShowSearch} />
       {showSearch && (
-        <ModalSearch showSearch={setShowSearch} setIsAnyQuery={setIsAnyQuery} />
+        <ModalSearch
+          setKey={generateKey}
+          showSearch={setShowSearch}
+          setIsAnyQuery={setIsAnyQuery}
+        />
       )}
       <Switch>
         <Route exact path="/">
@@ -29,8 +39,9 @@ function App() {
         </Route>
         <Route
           path="/result"
-          children={isAnyQuery ? <Foodpage /> : <Redirect to="/" />}
+          children={isAnyQuery ? <Foodpage key={key} /> : <Redirect to="/" />}
         ></Route>
+        <Route path="/fullrecipe" children={<FullRecipe />}></Route>
         <Route path="*">
           <ErrorPage />
         </Route>

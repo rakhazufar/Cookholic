@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import search from "../assets/search2.png";
-import Homepic from "../assets/Homepic.svg";
 import { useHistory } from "react-router";
 
 function Homepage({ setIsAnyQuery }) {
@@ -37,9 +36,7 @@ function Homepage({ setIsAnyQuery }) {
             />
           </form>
         </div>
-        <div className="img-page">
-          <img src={Homepic} alt="" />
-        </div>
+        <div className="img-page">{/* <img src={Homepic} alt="" /> */}</div>
       </div>
     </main>
   );

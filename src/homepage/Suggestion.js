@@ -20,13 +20,14 @@ function Suggestion() {
         {data &&
           data.map((food) => {
             return (
-              <div key={food.id}>
-                <Card
-                  title={food.title}
-                  image={food.image}
-                  summary={food.summary}
-                />
-              </div>
+              <Card
+                key={food.id}
+                title={food.title}
+                image={food.image}
+                summary={food.summary}
+                foodID={food.id}
+                score={food.spoonacularScore}
+              />
             );
           })}
       </div>

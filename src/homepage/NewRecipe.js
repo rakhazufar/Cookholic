@@ -9,11 +9,7 @@ function NewRecipe() {
   const { data, error, isLoading } = useFetch(url);
 
   if (error) {
-    return (
-      <div className="error">
-        <h1>Upss... Something went wrong</h1>
-      </div>
-    );
+    return <div></div>;
   }
   return (
     <section>
@@ -28,6 +24,8 @@ function NewRecipe() {
                   title={food.title}
                   image={food.image}
                   summary={food.summary}
+                  foodID={food.id}
+                  score={food.spoonacularScore}
                 />
               </div>
             );

@@ -92,6 +92,9 @@ main {
   justify-content: center;
   align-items: center;
   background-color: $color3;
+  background-image: url(./assets/background.png);
+  background-size: cover;
+  background-position: center;
   .homepage {
     display: flex;
     width: 80%;
@@ -164,6 +167,7 @@ $size-card: 38vh;
   background-color: white;
   margin: 10px 5px;
   position: relative;
+  cursor: pointer;
   img {
     width: $size-card;
     height: 220px;
@@ -180,20 +184,11 @@ $size-card: 38vh;
       font-size: smaller;
     }
   }
-  button {
-    margin: 3px 10px;
-    height: 30px;
-    width: 100px;
-    border-radius: 50px;
-    border: 2px solid $color2;
-    background-color: inherit;
-    cursor: pointer;
-    font-weight: 500;
+
+  .rating {
+    margin: 10px 5px;
     position: absolute;
-    bottom: 10px;
-  }
-  button:hover {
-    background-color: $color2;
+    bottom: 5px;
   }
 }
 .error {
@@ -417,6 +412,20 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+  //Detail Food
+  .recipe-container {
+    width: 100vw;
+    height: 90vh;
+    .details {
+      padding: 0 5px;
+    }
+  }
+
+  .errorText {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
   .detail-food {
     height: 100%;
     .inside-food {
@@ -522,19 +531,20 @@ footer {
     flex-direction: column;
     width: 100% !important;
     padding: 0;
+    justify-content: center !important;
   }
   .blur-effect {
     display: none;
   }
   .card {
     display: flex;
-    width: 95%;
-    height: 20vh;
+    width: 95vw;
+    height: fit-content;
     margin: 10px 5px;
-    overflow-y: hidden;
+    padding: 0;
     img {
       width: 400px;
-      height: 110%;
+      height: 100%;
       margin: 0;
     }
     .caption {
@@ -546,6 +556,10 @@ footer {
       }
       p {
         font-size: 2.5vw;
+      }
+      .rating {
+        bottom: 0;
+        margin: 0;
       }
     }
     button {

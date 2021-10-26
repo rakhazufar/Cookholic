@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SearchIcon from "./assets/search.png";
 import { useHistory } from "react-router";
 
-function ModalSearch({ showSearch, setIsAnyQuery }) {
+function ModalSearch({ showSearch, setIsAnyQuery, setKey }) {
   const [input, setInput] = useState("");
   const [emptyInput, setEmptyInput] = useState(false);
 
@@ -15,6 +15,7 @@ function ModalSearch({ showSearch, setIsAnyQuery }) {
     } else {
       showSearch(false);
       setIsAnyQuery(true);
+      setKey();
       history.push("/result", { query: input });
     }
   };
@@ -32,7 +33,7 @@ function ModalSearch({ showSearch, setIsAnyQuery }) {
           ev.stopPropagation();
         }}
       >
-        <form>
+        <form onSubmit={SearchFood}>
           <input
             type="text"
             placeholder={
@@ -43,7 +44,7 @@ function ModalSearch({ showSearch, setIsAnyQuery }) {
             name="query"
             onChange={handleChange}
           />
-          <button type="submit" onClick={SearchFood}>
+          <button type="submit">
             <img src={SearchIcon} alt="" />
           </button>
         </form>

@@ -2,9 +2,11 @@ import React from "react";
 
 function Error() {
   return (
-    <div>
-      <h1>Ups, we cant find page that u looking for!</h1>
-    </div>
+    <section>
+      <h1 className="errorText">
+        ups, we can't find a page that u looking for
+      </h1>
+    </section>
   );
 }
 

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "./Card";
-import { useLocation, useHistory } from "react-router";
+import { useLocation } from "react-router";
 import { Redirect } from "react-router-dom";
 import { useSearch } from "./useFetch";
 
@@ -9,7 +9,6 @@ function Foodpage({ isAnyQuery }) {
     <Redirect to="/" />;
   }
   const location = useLocation();
-  const history = useHistory();
   const { data, isLoading, error, Results } = useSearch(location.state.query);
   if (error) {
     return (
@@ -25,9 +24,13 @@ function Foodpage({ isAnyQuery }) {
         <h3>Results for {location.state.query}</h3>
         <div className="card-container">
           {isLoading ? (
-            <h1>Result</h1>
+            <section>
+              <h1>Loading...</h1>
+            </section>
           ) : Results === 0 ? (
-            <h1>{location.state.query} not found</h1>
+            <section>
+              <h1>{location.state.query} not found</h1>
+            </section>
           ) : (
             data.map((food) => {
               return (
@@ -36,6 +39,8 @@ function Foodpage({ isAnyQuery }) {
                     title={food.title}
                     image={food.image}
                     summary={food.summary}
+                    foodID={food.id}
+                    score={food.spoonacularScore}
                   />
                 </div>
               );

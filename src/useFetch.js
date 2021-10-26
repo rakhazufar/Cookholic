@@ -32,7 +32,7 @@ export const useSearch = (query) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [Results, setResults] = useState(null);
-  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=d45acc3131794a539e9320b9d66ce264&query=${query}&number=3&addRecipeInformation=true`;
+  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=d45acc3131794a539e9320b9d66ce264&query=${query}&number=12&addRecipeInformation=true`;
   useEffect(() => {
     fetch(url)
       .then((response) => {
@@ -53,4 +53,56 @@ export const useSearch = (query) => {
   }, []);
 
   return { data, isLoading, error, Results };
+};
+
+export const useGetFood = (id) => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=d45acc3131794a539e9320b9d66ce264&includeNutrition=false`;
+  useEffect(() => {
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Something went wrong");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(true);
+        console.log(error);
+      });
+  }, []);
+
+  return { data, isLoading, error };
+};
+
+export const useGetInstruction = (id) => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const url = `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=d45acc3131794a539e9320b9d66ce264`;
+  useEffect(() => {
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Something went wrong");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(true);
+        console.log(error);
+      });
+  }, []);
+
+  return { data, isLoading, error };
 };
