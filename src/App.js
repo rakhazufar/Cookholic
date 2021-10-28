@@ -11,8 +11,9 @@ import FullRecipe from "./FullRecipe";
 
 function App() {
   const [showSearch, setShowSearch] = useState(false);
-  const [isAnyQuery, setIsAnyQuery] = useState(true);
+  const [isAnyQuery, setIsAnyQuery] = useState(false);
   const [key, setKey] = useState(Math.random());
+  const [totalShow, setTotalShow] = useState(12);
   const generateKey = () => {
     setKey(Math.random());
   };
@@ -39,7 +40,18 @@ function App() {
         </Route>
         <Route
           path="/result"
-          children={isAnyQuery ? <Foodpage key={key} /> : <Redirect to="/" />}
+          children={
+            isAnyQuery ? (
+              <Foodpage
+                key={key}
+                totalShow={totalShow}
+                setTotalShow={setTotalShow}
+                generateKey={generateKey}
+              />
+            ) : (
+              <Redirect to="/" />
+            )
+          }
         ></Route>
         <Route path="/fullrecipe" children={<FullRecipe />}></Route>
         <Route path="*">

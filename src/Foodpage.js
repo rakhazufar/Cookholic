@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import { useLocation } from "react-router";
 import { Redirect } from "react-router-dom";
 import { useSearch } from "./useFetch";
+import { CircularProgress } from "@mui/material";
 
-function Foodpage({ isAnyQuery }) {
+function Foodpage({ isAnyQuery, totalShow, setTotalShow, generateKey }) {
   if (!isAnyQuery) {
     <Redirect to="/" />;
   }
   const location = useLocation();
-  const { data, isLoading, error, Results } = useSearch(location.state.query);
+  const { data, isLoading, error, Results } = useSearch(
+    location.state.query,
+    totalShow
+  );
+
+  const showMore = () => {
+    setTotalShow(totalShow + 12);
+    generateKey();
+  };
   if (error) {
     return (
       <section>
@@ -24,9 +33,9 @@ function Foodpage({ isAnyQuery }) {
         <h3>Results for {location.state.query}</h3>
         <div className="card-container">
           {isLoading ? (
-            <section>
-              <h1>Loading...</h1>
-            </section>
+            <div className="isLoading">
+              <CircularProgress color="success" />
+            </div>
           ) : Results === 0 ? (
             <section>
               <h1>{location.state.query} not found</h1>
@@ -48,6 +57,9 @@ function Foodpage({ isAnyQuery }) {
           )}
         </div>
       </div>
+      <button className="btn loadmore" onClick={showMore}>
+        Load More
+      </button>
     </section>
   );
 }

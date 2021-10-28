@@ -1,9 +1,60 @@
 import React from "react";
+import { useState } from "react";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useSelector, useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "./reducers";
 
 function Signup() {
-  const number = useSelector((store) => store.number);
+  const state = useSelector((state) => state);
+  console.log(state);
   const dispatch = useDispatch();
+
+  const { userAction, componentAction } = bindActionCreators(
+    actionCreators,
+    dispatch
+  );
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  console.log(form);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const submitSignup = (e) => {
+    e.preventDefault();
+    console.log(form);
+
+    //Sign Up Firebase
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, form.email, form.password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        userAction(form);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+
+    setForm({
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+  };
+
   return (
     <section className="signup-section">
       <div className="signup-text">
@@ -15,14 +66,28 @@ function Signup() {
       </div>
       <div className="signup-form">
         <h1>Hello, Friend!</h1>
-        <form>
+        <form onSubmit={submitSignup}>
           <div>
             <label htmlFor="name">Fullname</label>
-            <input type="text" id="name" name="name" placeholder="Name" />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={form.name}
+              placeholder="Name"
+              onChange={handleChange}
+            />
           </div>
           <div>
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Email" />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={form.email}
+              placeholder="Email"
+              onChange={handleChange}
+            />
           </div>
           <div>
             <label htmlFor="password">Password</label>
@@ -30,7 +95,9 @@ function Signup() {
               type="password"
               id="password"
               name="password"
+              value={form.password}
               placeholder="Password"
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -38,8 +105,10 @@ function Signup() {
             <input
               type="password"
               id="confirm-password"
-              name="confirm-password"
+              name="confirmPassword"
+              value={form.confirmPassword}
               placeholder="Confirm Password"
+              onChange={handleChange}
             />
           </div>
           <div className="term">
@@ -48,10 +117,13 @@ function Signup() {
               I have read and agree with <a href="#">term & conditions</a>
             </label>
           </div>
-          <button className="btn">Create Account</button>
+          <button type="submit" className="btn">
+            Create Account
+          </button>
         </form>
         <p className="already-signup">
-          Already have an account? <a href="">Sign In here</a>
+          Already have an account?
+          <a href="/signin">Sign In here</a>
         </p>
       </div>
     </section>

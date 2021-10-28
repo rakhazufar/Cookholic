@@ -8,7 +8,6 @@ export const useFetch = (url) => {
   useEffect(() => {
     fetch(url)
       .then((response) => {
-        console.log(response);
         if (!response.ok) {
           throw new Error("Something went wrong");
         }
@@ -27,12 +26,12 @@ export const useFetch = (url) => {
   return { data, error, isLoading };
 };
 
-export const useSearch = (query) => {
+export const useSearch = (query, totalData) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [Results, setResults] = useState(null);
-  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=d45acc3131794a539e9320b9d66ce264&query=${query}&number=12&addRecipeInformation=true`;
+  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=d45acc3131794a539e9320b9d66ce264&query=${query}&number=${totalData}&addRecipeInformation=true`;
   useEffect(() => {
     fetch(url)
       .then((response) => {

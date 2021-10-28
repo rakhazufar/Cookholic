@@ -9,8 +9,8 @@ function Home({ setIsAnyQuery }) {
   return (
     <>
       <Homepage setIsAnyQuery={setIsAnyQuery} />
-      <Suggestion />
-      <NewRecipe />
+      {/* <Suggestion />
+      <NewRecipe /> */}
       <Footer />
     </>
   );
