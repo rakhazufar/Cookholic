@@ -8,7 +8,7 @@ function Footer() {
           Developed by <span>Rakha</span>
         </h4>
         <h4>
-          <a href="#">Contact</a>
+          <a href="https://github.com/rakhazufar">Contact</a>
         </h4>
       </div>
     </footer>

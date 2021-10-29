@@ -19,10 +19,10 @@ function Login() {
         </form>
         <div>
           <h5>
-            Not Registered? <a href="">Sign Up</a>
+            Not Registered? <a href="#">Sign Up</a>
           </h5>
           <h5>
-            <a href="">Forgot Your Password?</a>
+            <a href="#">Forgot Your Password?</a>
           </h5>
         </div>
       </div>

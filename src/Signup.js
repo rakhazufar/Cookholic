@@ -10,10 +10,7 @@ function Signup() {
   console.log(state);
   const dispatch = useDispatch();
 
-  const { userAction, componentAction } = bindActionCreators(
-    actionCreators,
-    dispatch
-  );
+  const { userAction } = bindActionCreators(actionCreators, dispatch);
 
   const [form, setForm] = useState({
     name: "",
